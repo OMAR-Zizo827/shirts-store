@@ -1,0 +1,55 @@
+.cart-page { padding-bottom: 80px; }
+.cart-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 40px; }
+.cart-count { color: var(--text-muted); font-size: 1.1rem; }
+
+.cart-layout { display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: flex-start; }
+
+.cart-items-list { display: flex; flex-direction: column; gap: 16px; }
+
+.cart-item {
+  display: flex; gap: 20px; padding: 20px;
+}
+
+.cart-item-img-wrap {
+  width: 100px; height: 100px; flex-shrink: 0;
+  border-radius: var(--radius-md); overflow: hidden; background: var(--bg-primary);
+}
+.cart-item-img { width: 100%; height: 100%; object-fit: cover; }
+
+.cart-item-info { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+
+.cart-item-name {
+  font-weight: 700; font-size: 1rem; color: var(--text-primary);
+  text-decoration: none; transition: var(--transition);
+}
+.cart-item-name:hover { color: var(--accent); }
+.cart-item-team { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+.cart-item-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+
+.cart-item-controls { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.cart-item-subtotal { font-size: 1.1rem; font-weight: 800; color: var(--accent); }
+
+/* Summary */
+.cart-summary {
+  padding: 28px; position: sticky; top: 100px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.cart-summary h3 { font-size: 1.1rem; }
+.summary-row { display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary); }
+.summary-total { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); }
+.free-text { color: var(--accent); font-weight: 700; }
+.free-shipping-note {
+  font-size: 0.8rem; color: var(--gold); background: rgba(255,193,7,0.1);
+  border: 1px solid rgba(255,193,7,0.2); border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+
+@media (max-width: 900px) {
+  .cart-layout { grid-template-columns: 1fr; }
+  .cart-summary { position: static; }
+}
+@media (max-width: 600px) {
+  .cart-item { flex-direction: column; }
+  .cart-item-img-wrap { width: 100%; height: 160px; }
+  .cart-item-controls { justify-content: space-between; }
+}

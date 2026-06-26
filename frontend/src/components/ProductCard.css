@@ -1,0 +1,69 @@
+.product-card {
+  text-decoration: none; display: flex; flex-direction: column;
+  cursor: pointer; position: relative;
+}
+
+.product-img-wrap {
+  position: relative; overflow: hidden;
+  aspect-ratio: 4 / 3; background: var(--bg-secondary);
+}
+
+.product-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.product-card:hover .product-img { transform: scale(1.08); }
+
+.product-img-fallback {
+  width: 100%; height: 100%; display: flex; align-items: center;
+  justify-content: center; font-size: 4rem; background: var(--bg-secondary);
+}
+
+.featured-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: #000; font-size: 0.72rem; font-weight: 800;
+  padding: 4px 10px; border-radius: 99px;
+}
+
+.product-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 32px 16px 16px;
+  transform: translateY(100%); transition: var(--transition-slow);
+  display: flex; justify-content: center;
+}
+.product-card:hover .product-overlay { transform: translateY(0); }
+
+.quick-add.added { background: linear-gradient(135deg, #00b894, #00a381) !important; }
+
+.product-info { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+.product-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.product-name {
+  font-size: 0.98rem; font-weight: 700; color: var(--text-primary);
+  line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.product-team { font-size: 0.82rem; color: var(--text-secondary); font-weight: 500; }
+
+.product-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: auto; padding-top: 8px;
+}
+
+.product-price {
+  font-size: 1.2rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sizes-preview { display: flex; gap: 4px; }
+.size-chip {
+  font-size: 0.65rem; font-weight: 700; padding: 2px 6px;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 4px; color: var(--text-muted);
+}

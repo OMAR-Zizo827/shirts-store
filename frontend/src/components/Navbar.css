@@ -1,0 +1,117 @@
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 16px 0;
+  transition: var(--transition-slow);
+}
+
+.navbar-scrolled {
+  background: rgba(8, 12, 22, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 12px 0;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+
+.navbar-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 1.5rem; font-weight: 800; text-decoration: none;
+  flex-shrink: 0;
+}
+.logo-icon { font-size: 1.8rem; }
+.logo-text { letter-spacing: -0.5px; }
+
+.navbar-links {
+  display: flex; align-items: center; gap: 4px;
+}
+
+.nav-link {
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  font-weight: 500; font-size: 0.95rem; color: var(--text-secondary);
+  transition: var(--transition); text-decoration: none;
+}
+.nav-link:hover, .nav-link.active { color: var(--text-primary); background: var(--glass); }
+.nav-link.active { color: var(--accent); }
+.nav-link-admin { color: var(--gold) !important; }
+.nav-link-admin:hover { background: rgba(255,193,7,0.1) !important; }
+
+.navbar-actions {
+  display: flex; align-items: center; gap: 12px;
+}
+
+.cart-btn {
+  position: relative; background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md); padding: 10px 14px; font-size: 1.1rem;
+  color: var(--text-primary); transition: var(--transition); cursor: pointer;
+}
+.cart-btn:hover { background: rgba(0,230,118,0.1); border-color: var(--accent); }
+
+.cart-badge {
+  position: absolute; top: -6px; right: -6px;
+  background: var(--accent); color: #000;
+  width: 20px; height: 20px; border-radius: 50%;
+  font-size: 0.7rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  animation: scaleIn 0.2s ease;
+}
+
+.auth-buttons { display: flex; gap: 8px; }
+
+.user-menu-wrap { position: relative; }
+.user-avatar-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  border: none; border-radius: 50%; width: 38px; height: 38px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.user-avatar-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--accent-glow); }
+.user-avatar { font-weight: 800; color: #000; font-size: 0.9rem; }
+
+.user-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0;
+  background: var(--bg-card); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md); min-width: 200px;
+  box-shadow: var(--shadow-hover); overflow: hidden; z-index: 100;
+}
+.user-info { padding: 14px 16px; }
+.user-name { display: block; font-weight: 700; font-size: 0.95rem; }
+.user-email { display: block; font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+.dropdown-divider { height: 1px; background: var(--glass-border); }
+.dropdown-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 16px; font-size: 0.9rem; color: var(--text-secondary);
+  transition: var(--transition); cursor: pointer; background: transparent;
+  border: none; width: 100%; text-align: left; text-decoration: none;
+}
+.dropdown-item:hover { background: var(--glass); color: var(--text-primary); }
+.dropdown-item-danger:hover { color: var(--danger); background: rgba(255,71,87,0.1); }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: 8px; }
+.bar {
+  width: 22px; height: 2px; background: var(--text-primary);
+  border-radius: 2px; transition: var(--transition);
+  transform-origin: center;
+}
+.bar.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.bar.open:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.bar.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .auth-buttons .btn-secondary { display: none; }
+  .navbar-links {
+    position: fixed; top: 65px; left: 0; right: 0;
+    background: rgba(8,12,22,0.98); backdrop-filter: blur(20px);
+    flex-direction: column; padding: 20px 24px; gap: 8px;
+    transform: translateY(-120%); opacity: 0;
+    transition: var(--transition-slow); pointer-events: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .navbar-links.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+  .nav-link { padding: 14px 16px; font-size: 1.05rem; width: 100%; }
+}
