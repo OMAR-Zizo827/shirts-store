@@ -1,6 +1,14 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://shirts-store-one.vercel.app"
+  ],
+  credentials: true
+}));
 const path = require('path');
 const { getDB } = require('./db/database');
 
