@@ -8,7 +8,20 @@
     "dev": "nodemon src/index.js",
     "seed": "node src/db/seed.js"
   },
-  "keywords": ["football", "store", "api"],
+  "keywords": [
+    "football",
+    "store",
+    "api"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.2.0"
+  }
 }
