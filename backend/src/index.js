@@ -1,18 +1,10 @@
 require('dotenv').config();
-const express = require('express');
-const cors = require("cors");
 
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://shirts-store-one.vercel.app"
-  ],
-  credentials: true
-}));
+const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const { getDB } = require('./db/database');
 
-// Import routes
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const cartRoutes = require('./routes/cart');
@@ -21,14 +13,19 @@ const orderRoutes = require('./routes/orders');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Initialize DB on startup
+// Initialize DB
 getDB();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
-  credentials: true,
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://shirts-store-one.vercel.app"
+  ],
+  credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -50,5 +47,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`⚽ Football Store API running on http://localhost:${PORT}`);
+  console.log(`⚽ Football Store API running on port ${PORT}`);
 });
